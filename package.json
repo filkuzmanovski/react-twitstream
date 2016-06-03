@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/filkuzmanovski/react-twitstream/issues"
   },
-  "homepage": "https://github.com/filkuzmanovski/react-twitstream#readme"
+  "homepage": "https://github.com/filkuzmanovski/react-twitstream#readme",
+  "devDependencies": {
+    "browserify": "^13.0.1"
+  }
 }
