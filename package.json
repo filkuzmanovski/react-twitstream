@@ -1,0 +1,19 @@
+{
+  "name": "react-twitstream",
+  "version": "1.0.0",
+  "description": "Packages for twitter stream app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filkuzmanovski/react-twitstream.git"
+  },
+  "author": "Filip Kuzmanovski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filkuzmanovski/react-twitstream/issues"
+  },
+  "homepage": "https://github.com/filkuzmanovski/react-twitstream#readme"
+}
