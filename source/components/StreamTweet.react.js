@@ -23,6 +23,12 @@ var StreamTweet = React.createClass({
 		};
 	},
 
+	componentWillUnmount: function () {
+		console.log('[react-twitstream] StreamTweet: 8. Running componentWillUnmount()');
+
+		delete window.react-twitstream;
+	},
+
 	render: function () {
 		console.log('[react-twitstream] StreamTweet: Running render()');
 
