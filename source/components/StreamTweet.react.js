@@ -67,6 +67,12 @@ var StreamTweet = React.createClass({
 		console.log('[react-twitstream] StreamTweet: 6. Running componentWillUpdate()');
 	},
 
+	componentDidUpdate: function (prevProps, prevState) {
+		console.log('[react-twitstream] StreamTweet: 7. Running componentDidUpdate()');
+
+		window.react-twitstream.numberOfDisplayedTweets++;
+	},
+
 	componentWillUnmount: function () {
 		console.log('[react-twitstream] StreamTweet: 8. Running componentWillUnmount()');
 

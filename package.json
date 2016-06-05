@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/filkuzmanovski/react-twitstream#readme",
   "devDependencies": {
+    "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "gulp": "^3.9.1",
