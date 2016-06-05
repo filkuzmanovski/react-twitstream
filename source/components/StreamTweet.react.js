@@ -23,11 +23,46 @@ var StreamTweet = React.createClass({
 		};
 	},
 
+	componentDidMount: function () {
+  		console.log('[react-twitstream] StreamTweet: 3. Running componentDidMount()');
+
+  		var componentDOMRepresentation = ReactDOM.findDOMNode(this);
+
+  		window.react-twitstream.headerHtml = componentDOMRepresentation.children[0].outerHTML;
+  		window.react-twitstream.tweetHtml = componentDOMRepresentation.children[1].outerHTML;
+	},
+
+	componentWillReceiveProps: function (nextProps) {
+  		console.log('[react-twitstream] StreamTweet: 4. Running componentWillReceiveProps()');
+
+  		var currentTweetLength = this.props.tweet.text.length;
+  		var nextTweetLength = nextProps.tweet.text.length;
+  		var isNumberOfCharactersIncreasing = (nextTweetLength > currentTweetLength);
+  		var headerText;
+
+  		this.setState({
+    	numberOfCharactersIsIncreasing: isNumberOfCharactersIncreasing
+  	});
+
+  		if (isNumberOfCharactersIncreasing) {
+    		headerText = 'Number of characters is increasing';
+  		} else {
+    		headerText = 'Latest public photo from Twitter';
+  	}
+
+  		this.setState({
+    	headerText: headerText
+  	});
+
+  		window.react-twitstream.numberOfReceivedTweets++;
+	},
+
 	componentWillUnmount: function () {
 		console.log('[react-twitstream] StreamTweet: 8. Running componentWillUnmount()');
 
 		delete window.react-twitstream;
 	},
+
 
 	render: function () {
 		console.log('[react-twitstream] StreamTweet: Running render()');
