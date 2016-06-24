@@ -17,3 +17,26 @@ var TweetStore = assign({}, EventEmitter.prototype, {
   addChangeListener: function (callback) {
     this.on('change', callback);
   },
+
+  removeChangeListener: function (callback) {
+    this.removeListener('change', callback);
+  },
+
+  getTweet: function () {
+    return tweet;
+  }
+
+});
+
+function handleAction(action) {
+  if (action.type === 'receive_tweet') {
+    setTweet(action.tweet);
+    emitChange();
+  }
+}
+
+TweetStore.dispatchToken = AppDispatcher.register(handleAction);
+
+module.exports = TweetStore;
+The TweetStore.js file implements a simple store. We can break it into four logical parts:
+
