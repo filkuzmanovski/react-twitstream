@@ -1,7 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
-
 var tweet = null;
 
 function setTweet(receivedTweet) {
@@ -25,7 +24,6 @@ var TweetStore = assign({}, EventEmitter.prototype, {
   getTweet: function () {
     return tweet;
   }
-
 });
 
 function handleAction(action) {
@@ -38,5 +36,3 @@ function handleAction(action) {
 TweetStore.dispatchToken = AppDispatcher.register(handleAction);
 
 module.exports = TweetStore;
-The TweetStore.js file implements a simple store. We can break it into four logical parts:
-
