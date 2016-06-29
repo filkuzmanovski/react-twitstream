@@ -28216,6 +28216,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Header = require('./Header.react');
 var Tweet = require('./Tweet.react');
+var CollectionActionCreators = require('../actions/CollectionActionCreators');
 
 var StreamTweet = React.createClass({
   displayName: 'StreamTweet',
@@ -28228,6 +28229,10 @@ var StreamTweet = React.createClass({
       numberOfCharactersIsIncreasing: null,
       headerText: null
     };
+  },
+
+  addTweetToCollection: function (tweet) {
+    CollectionActionCreators.addTweetToCollection(tweet);
   },
 
   componentWillMount: function () {
@@ -28306,16 +28311,14 @@ var StreamTweet = React.createClass({
       'section',
       null,
       React.createElement(Header, { text: this.state.headerText }),
-      React.createElement(Tweet, {
-        tweet: this.props.tweet,
-        onImageClick: this.props.onAddTweetToCollection })
+      React.createElement(Tweet, { tweet: this.props.tweet, onImageClick: this.addTweetToCollection })
     );
   }
 });
 
 module.exports = StreamTweet;
 
-},{"./Header.react":235,"./Tweet.react":238,"react":211,"react-dom":68}],238:[function(require,module,exports){
+},{"../actions/CollectionActionCreators":226,"./Header.react":235,"./Tweet.react":238,"react":211,"react-dom":68}],238:[function(require,module,exports){
 var React = require('react');
 
 var tweetStyle = {
